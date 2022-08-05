@@ -1,0 +1,8 @@
+.expose {
+  background-color: $hover-green;
+  padding: 30px;
+
+  & > * {
+    margin: 0;
+  }
+}

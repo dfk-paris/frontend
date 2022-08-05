@@ -1,0 +1,8 @@
+{
+  "name": "@dfk-paris/frontend",
+  "devDependencies": {
+    "d3": "^7.2.1",
+    "@wendig/lib": "../../js-lib/src"
+  },
+  "main": "src/main.js"
+}
