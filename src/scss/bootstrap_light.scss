@@ -21,19 +21,19 @@
 // display & flex
 
 .d-block {
-  display: block;
+  display: block !important;
 }
 
 .d-inline-block {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 .d-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .d-none {
-  display: none;
+  display: none !important;
 }
 
 .flex-column {
@@ -135,6 +135,10 @@
 
 .fs-2 {
   font-size: 1.2em;
+}
+
+.text-start {
+  text-align: start;
 }
 
 .text-end {
@@ -242,6 +246,16 @@ $sides: (
       padding-#{$side}: $amount !important;
     }
   }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 

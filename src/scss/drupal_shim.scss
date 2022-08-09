@@ -1,19 +1,24 @@
-@import 'fonts.scss';
+@font-face {
+  font-family: 'cera-pro';
+  src: url('https://static.dfkg.org/frontend/CeraPRO-Regular.woff2') format('woff2');
+}
 
-// h1 {
-//   font-family: $serif;
-//   font-size: 44px;
-//   color: $header-green;
-//   font-weight: normal;
-//   margin: {
-//     top: 100px;
-//     bottom: 50px;
-//   };
-// }
+@font-face {
+  font-family: 'cera-pro';
+  font-weight: 401 700;
+  src: url('https://static.dfkg.org/frontend/CeraPRO-Bold.woff2') format('woff2');
+}
 
-// * {
-//   box-sizing: border-box;
-// }
+@font-face {
+  font-family: 'lyon';
+  src: url('https://static.dfkg.org/frontend/LyonText-Regular-Web.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'lyon';
+  font-style: italic;
+  src: url('https://static.dfkg.org/frontend/LyonText-RegularItalic-Web.woff') format('woff');
+}
 
 html {
   margin: 0;
@@ -27,26 +32,10 @@ body {
   line-height: calc(24 / 18 * 1em);
   padding-left: 60px;
   padding-right: 120px;
-  // margin-right: 120px;
 }
-
-// h2 {
-//   font-family: $serif;
-//   font-size: 44px;
-//   color: $header-green;
-//   font-weight: normal;
-//   margin: {
-//     top: 40px;
-//     bottom: 60px;
-//   };
-// }
 
 a {
   color: $text-color;
   text-decoration: underline;
   cursor: pointer;
 }
-
-// [is='dfkv-watchlist-trigger'] {
-//   margin-right: 185px;
-// }

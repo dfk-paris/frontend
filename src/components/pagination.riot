@@ -5,8 +5,8 @@
       href="#"
       class="first text-decoration-none dfk-sans-serif {show(!isFirst())}"
     >
-      <dfk-icon type="arrow-left" />
-      <dfk-icon type="arrow-left" />
+      <dfk-widget is="icon" type="arrow-left" />
+      <dfk-widget is="icon" type="arrow-left" />
       <span class="text">erste Seite</span>
     </a>
     <a
@@ -14,7 +14,7 @@
       href="#"
       class="previous text-decoration-none dfk-sans-serif {show(!isFirst())}"
     >
-      <dfk-icon type="arrow-left" />
+      <dfk-widget is="icon" type="arrow-left" />
       <span class="text">vorherige Seite</span>
     </a>
     <div class="pt-1 indicator">{this.props.page}/{totalPages()}</div>
@@ -24,7 +24,7 @@
       class="next text-decoration-none dfk-sans-serif {show(!isLast())}"
     >
       <span class="text">nächste Seite</span>
-      <dfk-icon type="arrow-right" />
+      <dfk-widget is="icon" type="arrow-right" />
     </a>
     <a
       onclick={event => pageTo(totalPages(), event)}
@@ -32,8 +32,8 @@
       class="last text-decoration-none dfk-sans-serif {show(!isLast())}"
     >
       <span class="text">letzte Seite</span>
-      <dfk-icon type="arrow-right" />
-      <dfk-icon type="arrow-right" />
+      <dfk-widget is="icon" type="arrow-right" />
+      <dfk-widget is="icon" type="arrow-right" />
     </a>
   </template>
 
@@ -42,7 +42,7 @@
 
     export default class {
       static components = {
-        'dfk-icon': Icon
+        Icon
       }
 
       constructor() {

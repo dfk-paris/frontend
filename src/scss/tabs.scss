@@ -1,14 +1,15 @@
-dfk-tabs {
+.tabs {
   display: flex;
   justify-content: stretch;
   width: 100%;
 
-  dfk-tab {
+  .tab {
     display: block;
     flex-grow: 1;
     border: 1px solid gray;
     border-right-width: 0;
     transition: background-color 0.5s;
+    cursor: pointer;
 
     a {
       display: block;
@@ -16,11 +17,11 @@ dfk-tabs {
     }
   }
 
-  dfk-tab:last-child {
+  .tab:last-child {
     border-right-width: 1px;
   }
 
-  dfk-tab.active, dfk-tab:hover {
+  .tab.active, .tab:hover {
     background-color: gray;
 
     a {

@@ -1,0 +1,136 @@
+@import 'index';
+@import 'scss/drupal_shim';
+
+// Demo page specific
+
+[is='demo'], [is='popup'] {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .item {
+    margin-top: 100px;
+    margin-bottom: 70px;
+  }
+
+  .divider {
+    overflow: auto;
+    width: 20%;
+    border-top: 1px dashed gray;
+    margin: 50px auto;
+    height: 1px;
+  }
+
+  h1 {
+    font-family: $serif;
+    font-size: 44px;
+    color: $header-green;
+    font-weight: normal;
+    line-height: 1.875em;
+    margin: {
+      top: 100px;
+      bottom: 50px;
+    };
+  }
+
+  h2 {
+    font-family: $serif;
+    font-size: 30px;
+    color: $header-green;
+    font-weight: normal;
+    margin: {
+      top: 50px;
+      bottom: 40px;
+    };
+  }
+
+  a {
+    color: $text-color;
+  }
+
+  [is="pagination"] {
+    justify-content: center;
+  }
+
+  [is="active-filters"] {
+    display: block;
+  }
+
+  [is="facet"] {
+    display: block;
+  }
+
+  [is='fly-in'] {
+    z-index: 10000;
+
+    img {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .fly-in-open {
+      img {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  [is='popup'] {
+    z-index: 10000;
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+
+      icon {
+        max-width: 30px;
+        max-height: 30px;
+
+        cursor: pointer;
+      }
+    }
+  }
+
+  [is='tabs'] {
+    a {
+      font-family: $sans-serif;
+      text-align: left;
+      font-size: 16px;
+      border-color: $active-gray;
+      padding: 6px;
+      text-decoration: none !important;
+    }
+  }
+
+  .icons > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .icon-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+      margin-bottom: 20px;
+      width: 90px;
+
+      white-space: nowrap;
+    }
+
+    [is='icon'] {
+      display: block;
+      max-width: 30px;
+      max-height: 30px;
+
+      margin-bottom: 10px;
+    }
+  }
+
+}

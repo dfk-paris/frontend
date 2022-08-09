@@ -1,13 +1,13 @@
-<dfk-active-filters>
+<active-filters>
   <div class="d-flex flex-column align-items-start">
     <a
       each={filter in actives()}
-      class="d-block rounded type-{filter.param} mb-2 p-2 text-decoration-none dfk-sans-serif"
+      class="d-block rounded bg-gray mb-2 p-2 text-decoration-none dfk-sans-serif"
       onclick={event => removeFilter(event, filter.param, filter.value)}
     >
       <div class="d-flex">
         <div>×</div>
-        <div class="ml-1">{t(`filter_${filter.param}`)}: {labelFor(filter.value)}</div>
+        <div class="ml-1">{filterLabelFor(filter.param)}: {labelFor(filter.value)}</div>
       </div>
     </a>
   </div>
@@ -56,6 +56,14 @@
           return key
         }
       }
+
+      filterLabelFor(param) {
+        if (this.props.translateKeys) {
+          return this.t('filter_' + param)
+        } else {
+          return param
+        }
+      }
     }
   </script>
-</dfk-active-filters>
+</active-filters>

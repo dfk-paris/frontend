@@ -1,4 +1,4 @@
-<dfk-facet class={classes()}>
+<facet class={classes()}>
   <div class="header d-flex justify-content-between mb-4 dfk-sans-serif">
     <div>{props.name}</div>
     <div
@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <dfk-popup open={this.state.popup} class="facet">
+  <dfk-widget is="popup" open={this.state.popup} class="facet">
     <div style="margin: 40px">
       <div class="tag-line">{props.tag_line}</div>
       <div class="header d-flex justify-content-between">
@@ -27,7 +27,8 @@
 
         <p if={props.text}>{props.text}</p>
 
-        <dfk-pagination
+        <dfk-widget
+          is="pagination"
           class="mt-6 mb-5"
           page={state.page}
           per-page={10}
@@ -38,7 +39,7 @@
         <div class="d-flex flex-column align-items-start">
           <a
             each={bucket in bucketsPage()}
-            class="d-block rounded type-{props.type} mb-2 p-2 text-decoration-none"
+            class="d-block rounded bg-gray mb-2 p-2 text-decoration-none"
             onclick={event => addFilter(event, bucket.key)}
           >
             <div class="d-flex">
@@ -49,12 +50,12 @@
         </div>
       </div>
     </div>
-  </dfk-popup>
+  </dfk-widget>
 
   <div class="d-flex flex-column align-items-start">
     <a
       each={bucket in bigBuckets()}
-      class="d-block rounded type-{props.type} mb-2 p-2 text-decoration-none dfk-sans-serif"
+      class="d-block rounded bg-gray mb-2 p-2 text-decoration-none dfk-sans-serif"
       onclick={event => addFilter(event, bucket.key)}
     >
       <div class="d-flex">
@@ -74,10 +75,10 @@
 
     export default class {
       static components = {
-        'dfk-icon': Icon,
-        'dfk-input': Input,
-        'dfk-pagination': Pagination,
-        'dfk-popup': Popup
+        Icon,
+        Pagination,
+        Popup,
+        'dfk-input': Input
       }
 
       constructor() {
@@ -191,4 +192,4 @@
       }
     }
   </script>
-</dfk-facet>
+</facet>

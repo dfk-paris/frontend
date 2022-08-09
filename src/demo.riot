@@ -1,4 +1,4 @@
-<widgets>
+<demo>
   <div class="container">
     <h1>Widget Demo Page</h1>
 
@@ -10,7 +10,7 @@
     <div class="item">
       <h2>FlyIn</h2>
 
-      <fly-in open={this.state.paris}>
+      <dfk-widget is="fly-in" open={this.state.paris}>
         <div class="fly-in-open">
           <div style="padding: 30px">
             <h1>Paris</h1>
@@ -27,16 +27,11 @@
         </div>
 
         <div class="fly-in-closed">
-          <div style="padding: 30px">
-            Paris
-
-            <img
-              src="https://www.parisescapes.com/images/eiffel_tower_twilight.jpg"
-              style="width: 100%"
-            />
+          <div style="padding: 20px">
+            P
           </div>
         </div>
-      </fly-in>
+      </dfk-widget>
 
       <button class="default" onclick={this.parisClick}>Paris</button>
     </div>
@@ -45,7 +40,8 @@
       <h2>RangeControl</h2>
 
       <div style="width: 400px; height: 150px; margin: 50px auto 30px;">
-        <range-control
+        <dfk-widget
+          is="range-control"
           from={1455}
           to={1677}
           min={1400}
@@ -58,7 +54,8 @@
       <div class="divider"></div>
 
       <div style="width: 600px; height: 150px; margin: 50px auto 30px;">
-        <range-control
+        <dfk-widget
+          is="range-control"
           from={1626}
           to={1762}
           min={1400}
@@ -73,7 +70,7 @@
     <div class="item">
       <h2>Popup</h2>
 
-      <popup open={this.state.popup}>
+      <dfk-widget is="popup" open={this.state.popup}>
         <div style="padding: 40px">
           <div class="header">
             <h2> Artwork Details</h2>
@@ -83,7 +80,7 @@
             There are two main seasons, the rainy season (November to April) corresponding to summer, and the dry season (May/June to October/November), corresponding to winter. The dry season is subdivided into the cool dry season (May/June to August), and the hot dry season (September to October/November). The modifying influence of altitude gives the country pleasant subtropical weather rather than tropical conditions during the cool season of May to August.[76] However, average monthly temperatures remain above 20 °C (68 °F) over most of the country for eight or more months of the year.
           </p>
         </div>
-      </popup>
+      </dfk-widget>
 
       <button class="default" onclick={event => this.popup()}>Launch</button>
     </div>
@@ -92,23 +89,26 @@
       <h2>Tab</h2>
 
       <div style="width: 600px; margin: 0 auto;">
-        <dfk-tabs>
-          <dfk-tab
+        <div class="tabs">
+          <div
+            class="tab"
             id="continents"
             active-tab={this.state.tab}
             activate={id => this.changeTab(id)}
-          >Continents (3)</dfk-tab>
-          <dfk-tab
+          >Continents (3)</div>
+          <div
+            class="tab"
             id="countries"
             active-tab={this.state.tab}
             activate={id => this.changeTab(id)}
-          >Countries (19)</dfk-tab>
-          <dfk-tab
+          >Countries (19)</div>
+          <div
+            class="tab"
             id="cities"
             active-tab={this.state.tab}
             activate={id => this.changeTab(id)}
-          >Cities (182)</dfk-tab>
-        </tabs>
+          >Cities (182)</div>
+        </div>
       </div>
     </div>
 
@@ -123,7 +123,7 @@
             <div class="content-box">
               <div class="meta">
                 <div class="mb-1">Jean-Marc Poinsot</div>
-                <div class="sans-serif font-weight-bold">Kowalski</div>
+                <div class="dfk-sans-serif fw-bold">Kowalski</div>
                 <div class="ref mb-1">
                   <em>Chroniques de l’art vivant</em>,
                   n° 20, mai 1971, p. 12
@@ -149,23 +149,24 @@
     <div class="item">
       <h2>Pagination</h2>
 
-      <pagination
+      <dfk-widget
+        is="pagination"
         page={state.page}
         total={688}
         per-page={20}
-        page-to={page => this.pageTo(page)}
+        page-to={params => this.pageTo(params)}
       />
     </div>
 
     <div class="item">
-      <h2>.expose</h2>
+      <h2>.dfk-expose</h2>
 
-      <div style="width: 400px; margin: 0 auto;">
+      <div class="m-0 mx-auto text-start" style="width: 400px">
         <p>
           In eget enim sem. Quisque ornare commodo tellus id tristique. Phasellus id sapien sed lorem commodo cursus. Donec id malesuada nibh, sit amet sollicitudin mi.
         </p>
 
-        <div class="expose">
+        <div class="dfk-expose">
           <p>
             Pellentesque urna odio, facilisis et laoreet a, rhoncus id ex. Sed vitae urna eu metus ornare pharetra. Quisque sodales nunc at scelerisque cursus. Etiam tincidunt nunc purus, quis ultrices ante gravida quis. Duis urna velit, lobortis vitae feugiat quis, pretium at arcu. Nulla ac nunc quis lacus pharetra luctus. Sed ligula mi, aliquam nec arcu et, finibus egestas nisl. Quisque aliquet ac nunc non suscipit. Quisque pulvinar commodo ante, id maximus enim.
           </p>
@@ -178,20 +179,20 @@
     </div>
 
     <div class="item">
-      <h2>DfkBlockquote</h2>
+      <h2>Blockquote</h2>
 
       <div style="width: 400px; margin: 0 auto;">
-        <dfk-blockquote>
+        <dfk-widget is="blockquote">
           »Man erlebte die Ausstellung mit Genuß und ist dankbar für diesen, wenn auch nicht vollkommen geklärten Einblick in das einen überlieferten, hohen Durchschnitt zeigende französische Kunstschaffen der Gegenwart.«
-        </dfk-blockquote>
+        </dfk-widget>
       </div>
     </div>
 
     <div class="item">
-      <h2>.attribute-list</h2>
+      <h2>.dfk-attribute-list</h2>
 
-      <div style="width: 400px; margin: 0 auto;">
-        <div class="attribute-list">
+      <div class="mx-auto" style="width: 400px">
+        <div class="dfk-attribute-list">
           <div class="attribute">Beschreibung/Kommentar</div>
           <div class="value">
             Der Organisator der 'ersten offiziellen Ausstellung französischer Kunst seit 40 Jahren', Robert Rey, habe als Schlüssel zu dieser Schau die Gruppe Nabis erklärt. Es falle auf, daß nur Anerkanntes gezeigt werde, wohl um den Eindruck überlegener Gelassenheit erwecken zu können.
@@ -209,7 +210,7 @@
     <div class="item">
       <h2>button</h2>
 
-      <div style="width: 500px; margin: 0 auto;">
+      <div class="mx-auto" style="width: 500px">
         <button class="default">default</button>
         <button class="yellow">yellow</button>
         <button class="green">green</button>
@@ -227,69 +228,166 @@
     <div class="item icons">
       <h2>Icon</h2>
 
-      <div style="width: 500px; margin: 0 auto;">
+      <div class="mx-auto" style="width: 500px">
         <div class="icon-tile">
-          <Icon type="book" />
+          <dfk-widget is="icon" type="book" />
           <div>book</div>
         </div>
         <div class="icon-tile">
-          <Icon type="quotes" />
+          <dfk-widget is="icon" type="quotes" />
           <div>quotes</div>
         </div>
 
         <div class="icon-tile">
-          <Icon type="arrow-left" />
+          <dfk-widget is="icon" type="arrow-left" />
           <div>arrow-left</div>
         </div>
         <div class="icon-tile">
-          <Icon type="arrow-right" />
+          <dfk-widget is="icon" type="arrow-right" />
           <div>arrow-right</div>
         </div>
         <div class="icon-tile">
-          <Icon type="arrow-up" />
+          <dfk-widget is="icon" type="arrow-up" />
           <div>arrow-up</div>
         </div>
 
         <div class="icon-tile">
-          <Icon type="chevron-left" />
+          <dfk-widget is="icon" type="chevron-left" />
           <div>chevron-left</div>
         </div>
         <div class="icon-tile">
-          <Icon type="chevron-right" />
+          <dfk-widget is="icon" type="chevron-right" />
           <div>chevron-right</div>
         </div>
 
         <div class="icon-tile">
-          <Icon type="cross" />
+          <dfk-widget is="icon" type="cross" />
           <div>cross</div>
         </div>
         <div class="icon-tile">
-          <Icon type="print" />
+          <dfk-widget is="icon" type="print" />
           <div>print</div>
         </div>
       </div>
     </div>
 
+    <div class="item">
+      <h2>Loading</h2>
+
+      <dfk-widget
+        is="loading"
+        ready={false}
+        text="... loading database ..."
+      />
+    </div>
+
+    <div class="item">
+      <h2>Input</h2>
+
+      <div class="mx-auto text-start" style="width: 400px">
+        <dfk-widget
+          is="dfk-input"
+          class="mb-3"
+          type="text"
+          name="terms"
+          label="Search"
+          placeholder="Start typing a name ..."
+        />
+
+        <dfk-widget
+          is="dfk-input"
+          name="adults_only"
+          type="checkbox"
+          label="Only show people who are more than 18 years old"
+        />
+      </div>
+    </div>
+
+    <div class="item">
+      <h2>AuthorityLink</h2>
+
+      <div class="mx-auto text-start" style="width: 400px">
+        <ul>
+          <li><dfk-widget is="authority-link" type="wikidata" id="Q42" /></li>
+          <li><dfk-widget is="authority-link" type="gnd" id="119033364" /></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <h2>Glossary</h2>
+
+      <div class="mx-auto text-start" style="width: 400px">
+        <div class="dfk-glossary">
+          <div class="row">
+            <div class="key">Birds</div>
+            <div class="description">Birds are a group of warm-blooded vertebrates constituting the class Aves, characterised by feathers, toothless beaked jaws, the laying of hard-shelled eggs, a high metabolic rate, a four-chambered heart, and a strong yet lightweight skeleton.</div>
+          </div>
+          <div class="row">
+            <div class="key">Insects</div>
+            <div class="description">Insects are pancrustacean hexapod invertebrates of the class Insecta. They are the largest group within the arthropod phylum. Insects have a chitinous exoskeleton, a three-part body, three pairs of jointed legs, compound eyes and one pair of antennae.</div>
+          </div>
+          <div class="row">
+            <div class="key">Fish</div>
+            <div class="description">Fish are aquatic, craniate, gill-bearing animals that lack limbs with digits. Included in this definition are the living hagfish, lampreys, and cartilaginous and bony fish as well as various extinct related groups. Approximately 95% of living fish species are ray-finned fish, belonging to the class Actinopterygii, with around 99% of those being teleosts.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h2>(Active) Filters</h2>
+
+      <div class="mx-auto" style="width: 180px">
+        <dfk-widget
+          is="active-filters"
+          criteria={{tag: 'animal|historic', category: 'subject'}}
+          params={['tag', 'category']}
+          translate-keys={false}
+          class="mb-5"
+        />
+
+        <dfk-widget
+          is="facet"
+          tag_line={'some tag line'}
+          name="People facet"
+          text="some text"
+          criteria={{people: 'Douglas Adams'}}
+          aggregation={state.aggregation}
+          class="d-block mb-6"
+        />
+      </div>
+    </div>
   </div>
 
   <script>
-    import DfkBlockquote from './blockquote.riot'
-    import FlyIn from './fly_in.riot'
-    import Icon from './icon.riot'
-    import Pagination from './pagination.riot'
-    import Popup from './popup.riot'
-    import RangeControl from './range_control.riot'
-    import Tab from './tab.riot'
+    import ActiveFilters from './components/active_filters.riot'
+    import AuthorityLink from './components/authority_link.riot'
+    import Blockquote from './components/blockquote.riot'
+    import Facet from './components/facet.riot'
+    import FlyIn from './components/fly_in.riot'
+    import Icon from './components/icon.riot'
+    import Input from './components/input.riot'
+    import Loading from './components/loading.riot'
+    import Pagination from './components/pagination.riot'
+    import Popup from './components/popup.riot'
+    import RangeControl from './components/range_control.riot'
+    import Tab from './components/tab.riot'
 
     export default class {
       static components = {
-        DfkBlockquote,
-        FlyIn, 
+        ActiveFilters,
+        AuthorityLink,
+        Blockquote,
+        Facet,
+        FlyIn,
         Icon,
-        RangeControl,
+        Loading,
         Pagination,
         Popup,
-        Tab
+        RangeControl,
+        Tab,
+        'dfk-input': Input,
       }
 
       onBeforeMount(props, state) {
@@ -300,25 +398,21 @@
           bins2: this.randomBins(80),
           popup: false,
           tab: 'cities',
-          page: 8
+          page: 8,
+          aggregation: {
+            buckets: [
+              {key: 'Renaud Divo', doc_count: 43},
+              {key: 'Jean-Bâptiste', doc_count: 10},
+              {key: 'Jane Doe', doc_count: 2}
+            ]
+          }
         }
 
-        // this.zambiaClick = this.zambiaClick.bind(this)
         this.parisClick = this.parisClick.bind(this)
         this.popup = this.popup.bind(this)
 
         this.root.innerHTML = ''
-
-        // remove pink background from dfk unpublished page
-        const article = document.querySelector('article')
-        if (article) {
-          article.classList.remove('node--unpublished')
-        }
       }
-
-      // zambiaClick() {
-      //   this.update({zambia: !this.state.zambia})
-      // }
 
       onMounted() {
         window.setTimeout(() => {
@@ -348,9 +442,9 @@
         this.update({tab: id})
       }
 
-      pageTo(newPage) {
-        this.update({page: newPage})
+      pageTo(params) {
+        this.update({page: params['page']})
       }
     }
   </script>
-</widgets>
+</demo>
