@@ -1,16 +1,15 @@
 # DFK Frontend Library
 
-* fonts licensing
-* favicon
-* icons
+This is a library with frontend code facilitating current and future project
+development. Specifically for the workflow to implement quasi web components
+within the DFK Paris' Drupal CMS.
 
-// remove pink background from dfk unpublished page
-        const article = document.querySelector('article')
-        if (article) {
-          article.classList.remove('node--unpublished')
-        }
+While this code is open source, it is likely not useful beyond the current
+[DFK Paris website](https://dfk-paris.org).
 
-TODO
+Some licensed assets (fonts, images) are directly included from the DFK Paris
+static hosts and are therefore not part of this repository.
+
 
 ## Usage
 
@@ -66,6 +65,20 @@ import RangeControl from '@dfk-paris/frontend/src/range_control.riot'
 riot.register('range-control', RangeControl)
 riot.mount('range-control')
 ~~~
+
+The Drupal system currently applies a pink shade to unpublished shades. This
+can be a problem when previewing new production content. To suppress the
+feature, include the following somewhere on the Drupal page:
+
+~~~html
+<script type="text/javascript">
+  var article = document.querySelector('article')
+  if (article) {
+    article.classList.remove('node--unpublished')
+  }
+</script>
+~~~
+
 
 ## Development
 
