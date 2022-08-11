@@ -13,7 +13,10 @@ static hosts and are therefore not part of this repository.
 
 ## Usage
 
-To make use of some of the widgets within this module, simply include the static
+A demo page with available widgets is online at
+https://static.dfkg.org/frontend/dist/index.html
+
+To make use of some of the widgets, simply include the static
 build in your drupal page with a script tag:
 
 ~~~html
@@ -30,7 +33,9 @@ file for examples. Keep in mind that you cannot use self-closing tags, so
 instead of `<dfk-widget is="icon" />` you have to use
 `<dfk-widget is="icon"></dfk-widget>`.
 
-The module can also be imported and used in a module context like this
+Many widgets require data input which you will have to pass with JavaScript or
+HTML attributes. Therefore, the module can also be imported and used in a#
+JavaScript module context like this
 
 ~~~javascript
 import DfkFrontend from 'https://static.dfkg.org/frontend/dist/index.js'

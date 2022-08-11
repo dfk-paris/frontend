@@ -72,7 +72,7 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: 'src/demo.ejs',
-        filename: 'demo.html',
+        filename: 'index.html',
         meta: {
           'viewport': 'width=device-width, initial-scale=1',
         },
