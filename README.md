@@ -71,7 +71,7 @@ riot.register('range-control', RangeControl)
 riot.mount('range-control')
 ~~~
 
-The Drupal system currently applies a pink shade to unpublished shades. This
+The Drupal system currently applies a pink shade to unpublished pages. This
 can be a problem when previewing new production content. To suppress the
 feature, include the following somewhere on the Drupal page:
 
