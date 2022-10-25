@@ -29,19 +29,21 @@
       'dfk': 'DFK',
       'pb': 'Palais Beauharnais',
       'or': 'OwnReality',
-      'dfkv': 'DFKV'
+      'dfkv': 'DFKV',
+      'fs': 'Fantin-Latour – Scholderer',
+      'av': 'Architrave'
     }
 
     const urls = {
-      'wikidata': (id) => `https://www.wikidata.org/wiki/${id}`,
-      'ulan': (id) => `http://vocab.getty.edu/page/${id}`,
-      'gnd': (id) => `https://d-nb.info/gnd/${id}`,
-      'viaf': (id) => `https://viaf.org/viaf/${id}`,
-      'bnf': (id) => `https://catalogue.bnf.fr/ark:/12148/${id}`,
-      'dfk': (id) => `https://dfk-paris.org/people/${id}`,
-      'pb': (id) => `https://dfk-paris.org/pb/people/${id}`,
-      'or': (id) => `https://dfk-paris.org/or/people/${id}`,
-      'dfkv': (id) => `https://dfk-paris.org/dfkv/people/${id}`
+      'wikidata': (id, label) => `https://www.wikidata.org/wiki/${id}`,
+      'ulan': (id, label) => `http://vocab.getty.edu/page/${id}`,
+      'gnd': (id, label) => `https://d-nb.info/gnd/${id}`,
+      'viaf': (id, label) => `https://viaf.org/viaf/${id}`,
+      'bnf': (id, label) => `https://catalogue.bnf.fr/ark:/12148/${id}`,
+      'dfk': (id, label) => `https://dfk-paris.org/people/${id}`,
+      'pb': (id, label) => `https://dfk-paris.org/de/WissenschaftlicheBearbeitungdesPalaisBeauharnais/Datenbank.html#/?people=${label}`,
+      'dfkv': (id, label) => `https://dfk-paris.org/de/node/2391#?person_id=${id}&person_id_label=${label}`,
+      'fs': (id, label) => `https://quellen.perspectivia.net/fr/fantin-scholderer/index_of_persons#${id}`
     }
 
     export default class {
@@ -50,7 +52,19 @@
       }
 
       url() {
-        return urls[this.props.type](this.props.id)
+        if (this.props.type == 'or') {
+          const id = parseInt(this.props.id)
+          const hash = btoa(escape(JSON.stringify({person_id: id})))
+          return `https://dfk-paris.org/de/page/ownrealitydatenbank-und-recherche-1353.html#/?q=${hash}`
+        }
+
+        if (this.props.type == 'av') {
+          const locale = this.props.locale
+          const id = this.props.id
+          return `https://www.architrave.eu/register.html?lang=${locale}#?modal=person&id=${id}`
+        }
+
+        return urls[this.props.type](this.props.id, this.props.label)
       }
 
       active() {

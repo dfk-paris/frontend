@@ -1,4 +1,4 @@
-import './index.scss'
+// import './index.scss'
 
 import * as riot from 'riot'
 

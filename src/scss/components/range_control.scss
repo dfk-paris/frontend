@@ -1,4 +1,4 @@
-[is='range-control'] {
+range-control, [is='range-control'] {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -9,8 +9,7 @@
     overflow: clip;
     overflow-x: visible;
 
-    width: calc(100% - 20px);
-    margin: 0 10px;
+    width: 100%;
 
     svg {
       display: block;

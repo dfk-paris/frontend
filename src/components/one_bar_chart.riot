@@ -3,6 +3,7 @@
     <div
       class="section"
       each={e in props.data}
+      if={e['value'] > 0}
       style={styleFor(e)}
     >{e['label']}</div>
   </div>
@@ -27,7 +28,6 @@
       }
 
       total() {
-        console.log(this.props)
         let result = 0.0
         for (const e of this.props.data) {
           result += e['value']

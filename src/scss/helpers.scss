@@ -5,3 +5,8 @@
 .dfk-sans-serif {
   font-family: $sans-serif !important;
 }
+
+.no-select {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}

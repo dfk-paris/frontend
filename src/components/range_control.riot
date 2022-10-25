@@ -1,5 +1,5 @@
 <range-control>
-  <div class={props.min == props.max ? 'd-none' : 'd-block'}>
+  <div class="{props.min == props.max ? 'd-none' : 'd-block'} {props.class}">
     <div class="graph">
       <svg viewBox="0 0 {svgWidth()} {svgHeight()}">
         <g class="bins" fill="#aaaaaa">
@@ -136,6 +136,7 @@
       }
 
       onBeforeUpdate(props, state) {
+        // console.log(props.bins)
         // get updated range from parent component
         if (!state.dragging) {
           state.fromTmp = props.from
@@ -157,7 +158,7 @@
           this.binIndexToPercent(index) <= this.valueToPercent(this.to())
         )
 
-        return active ? '#232323' : ''
+        return active ? 'var(--dfk-range-control-active)' : ''
       }
 
       valueToPercent(value) {
@@ -173,7 +174,16 @@
           domain([0, this.maxBin()]).
           range([0, 80])
 
-        return m(value)
+        const result = m(value)
+        // console.log(result)
+
+        return result > 0 && result < 1 ? 1 : result
+
+        // if (value == 1) {
+        //   console.log(m(value))
+        // }
+
+        // return m(value)
       }
 
       binIndexToPercent(index) {
@@ -188,6 +198,17 @@
         const values = this.props.bins
         return Math.max(...values)
       }
+
+      // enoughBins() {
+      //   const bins = this.props.bins
+      //   const min = this.props.minBins
+      //   console.log(bins.length, min)
+      //   if (!bins) return false
+      //   if (!min) return true
+
+
+      //   return bins.length >= min
+      // }
 
       svgWidth() {
         return this.root.querySelector('.graph').getBoundingClientRect().width
