@@ -1,7 +1,8 @@
 :root {
-  --fly-in-width: 45vw;
-  --fly-in-width-collapsed: 3.5vw;
-  --fly-in-offset-right: 0;
+  --dfk-fly-in-width: 45vw;
+  --dfk-fly-in-width-collapsed: 3.5vw;
+  --dfk-fly-in-offset-right: 0;
+  --dfk-fly-in-bg-color: #ffffff;
 }
 
 $shadow: -3px 0px 20px 5px rgba(0.4, 0.4, 0.4, 0.3);
@@ -9,21 +10,21 @@ $shadow: -3px 0px 20px 5px rgba(0.4, 0.4, 0.4, 0.3);
 [is='fly-in'] {
   z-index: 100;
   display: inline-block;
-  width: var(--fly-in-width-collapsed);
+  width: var(--dfk-fly-in-width-collapsed);
   position: fixed;
   top: 0;
-  right: var(--fly-in-offset-right);
+  right: var(--dfk-fly-in-offset-right);
   // overflow-x: clip;
   // overflow-y: clip;
   height: 100vh;
 
-  background-color: white;
+  background-color: var(--dfk-fly-in-bg-color);
 
   animation-duration: 0.5s;
   box-shadow: $shadow;
 
   .content-wrapper {
-    width: var(--fly-in-width);
+    width: var(--dfk-fly-in-width);
     height: 100%;
   }
 
@@ -32,7 +33,7 @@ $shadow: -3px 0px 20px 5px rgba(0.4, 0.4, 0.4, 0.3);
   }
 
   &.open {
-    width: var(--fly-in-width);
+    width: var(--dfk-fly-in-width);
     box-shadow: $shadow;
 
     animation-name: slidein;
@@ -58,27 +59,27 @@ $shadow: -3px 0px 20px 5px rgba(0.4, 0.4, 0.4, 0.3);
     }
 
     .content-wrapper {
-      width: var(--fly-in-width-collapsed);
+      width: var(--dfk-fly-in-width-collapsed);
     }
   }
 }
 
 @keyframes slidein {
   0% {
-    width: var(--fly-in-width-collapsed);
+    width: var(--dfk-fly-in-width-collapsed);
   }
 
   100% {
-    width: var(--fly-in-width);
+    width: var(--dfk-fly-in-width);
   }
 }
 
 @keyframes slideout {
   0% {
-    width: var(--fly-in-width);
+    width: var(--dfk-fly-in-width);
   }
 
   100% {
-    width: var(--fly-in-width-collapsed);
+    width: var(--dfk-fly-in-width-collapsed);
   }
 }
