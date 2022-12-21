@@ -1,7 +1,7 @@
 <range-control>
   <div class="{props.min == props.max ? 'd-none' : 'd-block'} {props.class}">
     <div class="graph">
-      <svg viewBox="0 0 {svgWidth()} {svgHeight()}">
+      <svg viewBox="0 0 {svgWidth()} {svgHeight()}" class={isSparse() && 'sparse'}>
         <g class="bins" fill="#aaaaaa">
           <rect
             each={(bin, index) in props.bins}
@@ -209,6 +209,12 @@
 
       //   return bins.length >= min
       // }
+
+      isSparse() {
+        const values = this.props.bins
+        const sum = values.reduce((acc, e) => acc + e, 0)
+        return sum < 20
+      }
 
       svgWidth() {
         return this.root.querySelector('.graph').getBoundingClientRect().width
