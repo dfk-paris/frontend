@@ -1,18 +1,20 @@
 <authority-link>
   <template if={active()}>
     <template if={props.linkifyId}>
-      {label()} ID&nbsp;
+      {label()}
+      <template if={!props.omitIdPrefix}>&nbsp;ID&nbsp;</template>
       <a
         href={url()}
         target="_blank"
         rel="noopener"
+        class="dfk-sans-serif"
       >{this.props.id}</a>
     </template>
 
     <template if={!props.linkifyId}>
       <a
         href={url()}
-        class="d-block"
+        class="d-block dfk-sans-serif"
         target="_blank"
         rel="noopener"
       >{label()}</a>
@@ -40,7 +42,7 @@
       'gnd': (id, label) => `https://d-nb.info/gnd/${id}`,
       'viaf': (id, label) => `https://viaf.org/viaf/${id}`,
       'bnf': (id, label) => `https://catalogue.bnf.fr/ark:/12148/${id}`,
-      'dfk': (id, label) => `https://dfk-paris.org/people/${id}`,
+      'dfk': (id, label) => `https://static.dfkg.org/purl/persons?dfkid=${id}`,
       'pb': (id, label) => `https://dfk-paris.org/de/WissenschaftlicheBearbeitungdesPalaisBeauharnais/Datenbank.html#/?people=${label}`,
       'dfkv': (id, label) => `https://dfk-paris.org/de/node/2391#?person_id=${id}&person_id_label=${label}`,
       'fs': (id, label) => `https://quellen.perspectivia.net/fr/fantin-scholderer/index_of_persons#${id}`
@@ -48,7 +50,7 @@
 
     export default class {
       label() {
-        return labels[this.props.type]
+        return this.props.label || labels[this.props.type]
       }
 
       url() {

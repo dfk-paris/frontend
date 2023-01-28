@@ -7,7 +7,7 @@
     >
       <dfk-widget is="icon" type="arrow-left" />
       <dfk-widget is="icon" type="arrow-left" />
-      <span class="text">erste Seite</span>
+      <span class="text">{props.firstLabel || 'first page'}</span>
     </a>
     <a
       onclick={event => pageTo(this.props.page - 1, event)}
@@ -15,15 +15,15 @@
       class="previous text-decoration-none dfk-sans-serif {show(!isFirst())}"
     >
       <dfk-widget is="icon" type="arrow-left" />
-      <span class="text">vorherige Seite</span>
+      <span class="text">{props.previousLabel || 'previous page'}</span>
     </a>
-    <div class="pt-1 indicator">{this.props.page}/{totalPages()}</div>
+    <div class="indicator">{this.props.page}/{totalPages()}</div>
     <a
       onclick={event => pageTo(this.props.page + 1, event)}
       href="#"
       class="next text-decoration-none dfk-sans-serif {show(!isLast())}"
     >
-      <span class="text">nächste Seite</span>
+      <span class="text">{props.nextLabel || 'next page'}</span>
       <dfk-widget is="icon" type="arrow-right" />
     </a>
     <a
@@ -31,7 +31,7 @@
       href="#"
       class="last text-decoration-none dfk-sans-serif {show(!isLast())}"
     >
-      <span class="text">letzte Seite</span>
+      <span class="text">{props.lastLabel || 'last page'}</span>
       <dfk-widget is="icon" type="arrow-right" />
       <dfk-widget is="icon" type="arrow-right" />
     </a>

@@ -1,5 +1,6 @@
 dfk-input, [is='dfk-input'] {
   display: block;
+  position: relative;
 
   label {
     font-family: $sans-serif;
@@ -30,6 +31,63 @@ dfk-input, [is='dfk-input'] {
   &[type='text'] {
     input {
       padding: 7px;
+    }
+  }
+
+  .control {
+    display: flex;
+
+  }
+
+  .help-button {
+    margin-left: 10px;
+
+    background-color: $tag-gray;
+    border-radius: 100px;
+    padding: 8px 12px;
+    font-family: cera-pro;
+    font-weight: 900;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .help {
+    display: inline-block;
+    position: absolute;
+    height: 0;
+    overflow-y: hidden;
+    padding: 0;
+
+    top: 0;
+    left: 108%;
+    margin-right: -108%;
+    max-width: 350px;
+
+    background-color: $hover-green;
+    z-index: 100;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      background-color: $hover-green;
+      top: 8px;
+      left: -7px;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+    }
+
+    &.show {
+      height: auto;
+      overflow-y: visible;
+      padding: 1em;
+      box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
+      opacity: 1;
     }
   }
 }

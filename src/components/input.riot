@@ -3,19 +3,36 @@
     if={props.label}
     for={props.name}
   >{props.label}</label>
-  <input
-    type={props.type || 'text'}
-    autocomplete="off"
-    id={props.name}
-    name={props.name}
-    value={propsValue()}
-    placeholder={props.placeholder}
-    oninput={event => onChange(event)}
-    checked={propsChecked()}
-  />
+
+  <div class="control">
+    <input
+      type={props.type || 'text'}
+      autocomplete="off"
+      id={props.name}
+      name={props.name}
+      value={propsValue()}
+      placeholder={props.placeholder}
+      oninput={event => onChange(event)}
+      onfocus={evebt => onFocus(event)}
+      onblur={evebt => onBlur(event)}
+      checked={propsChecked()}
+    />
+    <a
+      if={props.helpButton}
+      onclick={event => onHelpClick(event)}
+      class="help-button"
+    >?</a>
+    <div if={props.help} class="help {state.help ? 'show' : ''}">
+      {props.help}
+    </div>
+  </div>
 
   <script>
     export default class {
+      onBeforeMount(props, state) {
+        state.help = false
+      }
+
       onChange(event) {
         if (this.props.updateHandler) {
           let values = {[this.props.name]: this.getValue()}
@@ -25,6 +42,24 @@
 
           this.props.updateHandler(values)
         }
+
+        this.update({help: false})
+      }
+
+      onFocus(event) {
+        if (this.getValue()) return
+          
+        this.update({help: true})
+      }
+
+      onBlur(event) {
+        this.update({help: false})
+      }
+
+      onHelpClick(event) {
+        event.preventDefault()
+
+        this.update({help: !this.state.help})
       }
 
       getName() {

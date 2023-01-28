@@ -1,0 +1,10 @@
+active-filters, [is='active-filters'] {
+  a {
+    text-decoration: none;
+    width: 100%;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
