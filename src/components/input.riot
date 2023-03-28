@@ -8,14 +8,15 @@
     <input
       type={props.type || 'text'}
       autocomplete="off"
-      id={props.name}
+      id={props.id || props.name}
       name={props.name}
       value={propsValue()}
       placeholder={props.placeholder}
       oninput={event => onChange(event)}
-      onfocus={evebt => onFocus(event)}
+      onfocus={event => onFocus(event)}
       onblur={evebt => onBlur(event)}
       checked={propsChecked()}
+      spellcheck="false"
     />
     <a
       if={props.helpButton}
@@ -46,13 +47,24 @@
         this.update({help: false})
       }
 
+      onKeyup(event) {
+        const h = this.props.onkeyup
+        if (h) h(event)
+      }
+
       onFocus(event) {
+        const h = this.props.onfocus
+        if (h) h(event)
+
         if (this.getValue()) return
           
         this.update({help: true})
       }
 
       onBlur(event) {
+        const h = this.props.onblur
+        if (h) h(event)
+
         this.update({help: false})
       }
 

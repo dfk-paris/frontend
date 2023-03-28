@@ -57,6 +57,8 @@ class UrlSearch {
         this.cmp.state.criteria[k] = v
       }
     }
+
+    console.log(this.cmp.state, 'LLLLLL')
   }
 }
 
@@ -71,6 +73,7 @@ const params = () => {
     page: 1,
     perPage: 10,
     letter: null,
+    artist: null,
     ...url.hashParams(defaults)
   }
 

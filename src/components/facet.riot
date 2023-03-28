@@ -33,7 +33,7 @@
           page={state.page}
           per-page={10}
           total={count()}
-          page-to={page => this.update({page: page})}
+          page-to={params => this.update({page: params['page']})}
         />
 
         <div class="d-flex flex-column align-items-start">
@@ -60,7 +60,10 @@
     >
       <div class="d-flex">
         <div>+</div>
-        <div class="ml-1">{labelFor(bucket.key)} ({bucket.doc_count})</div>
+        <div class="ml-1">
+          <span class="label">{labelFor(bucket.key)}</span>&nbsp;<!--
+          --><span class="count">({bucket.doc_count})</span>
+        </div>
       </div>
     </a>
   </div>
@@ -75,9 +78,9 @@
 
     export default class {
       static components = {
-        Icon,
         Pagination,
         Popup,
+        'dfk-icon': Icon,
         'dfk-input': Input
       }
 

@@ -40,20 +40,40 @@
   flex-direction: column;
 }
 
-.justify-content-between {
-  justify-content: space-between;
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
-.justify-content-center {
-  justify-content: center;
+.justify-content-between {
+  justify-content: space-between;
 }
 
 .justify-content-start {
   justify-content: start;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
 .justify-content-end {
   justify-content: end;
+}
+
+.align-content-start {
+  align-content: start !important;
+}
+
+.align-content-end {
+  align-content: end !important;
+}
+
+.align-content-between {
+  align-content: space-between !important;
+}
+
+.align-content-around {
+  align-content: space-around !important;
 }
 
 .align-items-start {
@@ -62,6 +82,22 @@
 
 .align-items-center {
   align-items: center;
+}
+
+.align-items-end {
+  align-items: end;
+}
+
+.align-self-start {
+  align-self: start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-end {
+  align-self: end;
 }
 
 .float-left {
@@ -172,26 +208,18 @@
   height: auto;
 }
 
-.w-100 {
-  width: 100%;
-}
-
-.w-75 {
-  width: 75%;
-}
-
-.w-60 {
-  width: 60%;
-}
-
-.w-40 {
-  width: 40%;
+$percents: 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100;
+@each $p in $percents {
+  .w-#{$p} {
+    width: $p * 1%;
+  }
 }
 
 
 // spacing
 
 $spacers: (
+  0: 0,
   1: 0.2rem,
   2: 0.5rem,
   3: 1rem,
@@ -284,4 +312,12 @@ ul.list-unstyled {
   li:before {
     content: '' !important;
   }
+}
+
+
+// container
+
+.container {
+  width: 75%;
+  margin: 0 auto;
 }
