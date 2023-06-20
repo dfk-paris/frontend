@@ -1,10 +1,8 @@
-<routed-modal active={active()}>
+<routed-modal active={active()} component={state.componentName}>
   <div class="target" />
   <slot />
 
   <script>
-    import * as riot from 'riot'
-
     import {Url} from '@wendig/lib'
 
     export default class {
@@ -27,8 +25,9 @@
       mountCmp(component) {
         this.unmountCmp(false)
 
-        const mounter = riot.component(component)
+        const mounter = this.props.riotInstance.component(component)
         this.state.component = mounter(this.element, this.props.props)
+        this.state.componentName = component.name
         this.update()
 
         if (this.props.onComponentMounted) {
@@ -40,6 +39,7 @@
         if (this.state.component) {
           this.state.component.unmount(true)
           delete this.state['component']
+          delete this.state['componentName']
           this.update()
         }
 

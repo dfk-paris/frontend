@@ -33,7 +33,8 @@
       'or': 'OwnReality',
       'dfkv': 'DFKV',
       'fs': 'Fantin-Latour – Scholderer',
-      'av': 'Architrave'
+      'av': 'Architrave',
+      'babue': "Bühler"
     }
 
     const urls = {
@@ -45,7 +46,8 @@
       'dfk': (id, label) => `https://static.dfkg.org/purl/persons?dfkid=${id}`,
       'pb': (id, label) => `https://dfk-paris.org/de/WissenschaftlicheBearbeitungdesPalaisBeauharnais/Datenbank.html#/?people=${label}`,
       'dfkv': (id, label) => `https://dfk-paris.org/de/node/2391#?person_id=${id}&person_id_label=${label}`,
-      'fs': (id, label) => `https://quellen.perspectivia.net/fr/fantin-scholderer/index_of_persons#${id}`
+      'fs': (id, label) => `https://quellen.perspectivia.net/fr/fantin-scholderer/index_of_persons#${id}`,
+      'babue': (id, label) => `https://dfk-paris.org/de/page/bildarchiv-hans-peter-buehler-3379.html#?ids=${id}`
     }
 
     export default class {
@@ -66,7 +68,8 @@
           return `https://www.architrave.eu/register.html?lang=${locale}#?modal=person&id=${id}`
         }
 
-        return urls[this.props.type](this.props.id, this.props.label)
+        console.log(this.props.type)
+        return urls[this.props.type](this.props.id, this.props.name)
       }
 
       active() {
