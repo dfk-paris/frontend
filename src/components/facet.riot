@@ -34,6 +34,10 @@
           per-page={10}
           total={count()}
           page-to={params => this.update({page: params['page']})}
+          first-label={t('first_page')}
+          prev-label={t('prev_page')}
+          next-label={t('next_page')}
+          last-label={t('last_page')}
         />
 
         <div class="d-flex flex-column align-items-start">
