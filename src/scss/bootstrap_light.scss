@@ -310,6 +310,12 @@ $sides: (
 // grid
 
 .row {
+  display: flex;
+
+  .col-4 {
+    width: calc(100% / 3);
+  }
+
   .col-3 {
     width: 25%;
   }

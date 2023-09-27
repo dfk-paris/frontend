@@ -2,7 +2,7 @@
   <div class="header d-flex justify-content-between mb-4 dfk-sans-serif">
     <div>{props.name}</div>
     <div
-      if={total() > 5}
+      if={props.alwaysShowToggle || total() > expandThreshold()}
       class="text-end"
     >
       <a onclick={event => toggleShowAll(event)}>{t('show_all')}</a>
@@ -48,7 +48,12 @@
           >
             <div class="d-flex">
               <div>+</div>
-              <div class="ml-1">{bucket.key} ({bucket.doc_count})</div>
+              <div class="ml-1">
+                {bucket.key}
+                <span if={!props.hideCounts} class="pl-1">
+                  ({bucket.doc_count})
+                </span>
+              </div>
             </div>
           </a>
         </div>
@@ -59,14 +64,14 @@
   <div class="buttons d-flex flex-column align-items-start">
     <a
       each={bucket in bigBuckets()}
-      class="d-block rounded bg-gray mb-2 p-2 dfk-sans-serif"
+      class="d-block rounded bg-gray dfk-sans-serif"
       onclick={event => addFilter(event, bucket.key)}
     >
       <div class="d-flex">
         <div>+</div>
         <div class="ml-1">
           <span class="label">{labelFor(bucket.key)}</span>&nbsp;<!--
-          --><span class="count">({bucket.doc_count})</span>
+          --><span if={!props.hideCounts} class="count">({bucket.doc_count})</span>
         </div>
       </div>
     </a>
@@ -135,6 +140,10 @@
         return this.filteredBuckets().length
       }
 
+      expandThreshold() {
+        return this.props.expandThreshold || 5
+      }
+
       buckets() {
         return this.props.aggregation.buckets
       }
@@ -152,7 +161,7 @@
       }
 
       bigBuckets() {
-        const limit = this.state.expanded ? 10 : 5
+        const limit = this.state.expanded ? 10 : this.expandThreshold()
         return this.buckets().slice(0, limit)
       }
 
@@ -163,6 +172,11 @@
 
       toggleShowAll(event) {
         event.preventDefault()
+
+        if (this.props.onExpand) {
+          this.props.onExpand(event)
+          return
+        }
 
         // ensure closing opened popups
         if (this.state.popup) {

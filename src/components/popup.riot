@@ -12,7 +12,8 @@
       }
 
       onBeforeMount(props) {
-        document.body.append(this.root)
+        const container = props.container || document.body
+        container.append(this.root)
 
         this.state = {
           animate: false,
