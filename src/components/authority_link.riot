@@ -34,7 +34,8 @@
       'dfkv': 'DFKV',
       'fs': 'Fantin-Latour – Scholderer',
       'av': 'Architrave',
-      'babue': "Bühler"
+      'babue': "Bühler",
+      'ar': "Académie Royale"
     }
 
     const urls = {
@@ -68,7 +69,18 @@
           return `https://www.architrave.eu/register.html?lang=${locale}#?modal=person&id=${id}`
         }
 
-        console.log(this.props.type)
+        if (this.props.type == 'ar') {
+          const locale = this.props.locale
+          const id = this.props.name
+          const base = 'https://www.dfk-paris.org'
+
+          if (locale == 'fr') {
+            return `${base}/${locale}/page/academie-database-3846.html#?artist=${id}`
+          }
+
+          return `${base}/${locale}/page/academie-database-3846.html#?artist=${id}`
+        }
+
         return urls[this.props.type](this.props.id, this.props.name)
       }
 
