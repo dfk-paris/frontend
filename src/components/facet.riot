@@ -21,7 +21,7 @@
       <div class="body">
         <div class="row">
           <div class="col-3">
-            <dfk-input update-handler={this.setFilter} />
+            <dfk-input name="filter" update-handler={this.setFilter} />
           </div>
         </div>
 
@@ -205,9 +205,9 @@
         }
       }
 
-      setFilter(event, value) {
+      setFilter(values) {
         this.update({
-          filter: value,
+          filter: values['filter'],
           page: 1
         })
       }
