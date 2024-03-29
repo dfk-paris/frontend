@@ -108,6 +108,18 @@
   align-self: end;
 }
 
+.justify-self-start {
+  justify-self: start;
+}
+
+.justify-self-center {
+  justify-self: center;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
 .float-left {
   float: left;
 }
@@ -312,12 +324,10 @@ $sides: (
 .row {
   display: flex;
 
-  .col-4 {
-    width: calc(100% / 3);
-  }
-
-  .col-3 {
-    width: 25%;
+  @for $w from 1 to 12 {
+    .col-#{$w} {
+      width: calc(100% / 12 * $w);
+    }
   }
 }
 
