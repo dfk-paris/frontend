@@ -235,7 +235,7 @@
 $percents: 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100;
 @each $p in $percents {
   .w-#{$p} {
-    width: $p * 1%;
+    width: $p * 1% !important;
   }
 }
 
