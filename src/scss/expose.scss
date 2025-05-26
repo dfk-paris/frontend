@@ -1,5 +1,7 @@
+@use 'variables' as v;
+
 .dfk-expose {
-  background-color: $hover-green;
+  background-color: v.$hover-green;
   padding: 30px;
 
   & > * {

@@ -1,3 +1,5 @@
+@use 'variables' as v;
+
 // default
 
 * {
@@ -11,7 +13,7 @@
 }
 
 .bg-gray {
-  background-color: $tag-gray;
+  background-color: v.$tag-gray;
 }
 
 .border-bottom {
@@ -206,11 +208,11 @@
 }
 
 .text-muted {
-  color: $tag-gray !important;
+  color: v.$tag-gray !important;
 }
 
 .text-half-muted {
-  color: $active-gray !important;
+  color: v.$active-gray !important;
 }
 
 .text-decoration-none {

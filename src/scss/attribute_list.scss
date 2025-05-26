@@ -1,3 +1,5 @@
+@use 'variables' as v;
+
 .dfk-attribute-list {
   text-align: left;
   font-size: 18px;
@@ -9,7 +11,7 @@
   }
 
   .value {
-    font-family: $serif;
+    font-family: v.$serif;
     margin-bottom: 3em;
   }
 }

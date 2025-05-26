@@ -1,5 +1,7 @@
+@use 'variables' as v;
+
 .search-result {
-  font-family: $serif;
+  font-family: v.$serif;
   font-size: 18px;
   line-height: 24px;
   border-top: 1px solid gray;
@@ -10,7 +12,7 @@
   }
 
   .active-box:hover {
-    background-color: $hover-green;
+    background-color: v.$hover-green;
   }
 
   .content-box {
@@ -44,5 +46,5 @@
 }
 
 .search-result:last-child {
-  border-bottom: 1px solid $active-gray;
+  border-bottom: 1px solid v.$active-gray;
 }
