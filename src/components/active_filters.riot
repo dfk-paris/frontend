@@ -50,11 +50,10 @@
       }
 
       labelFor(key) {
-        if (this.props.translateValues) {
-          return this.t(key)
-        } else {
-          return key
-        }
+        if (this.props.labelFor) return this.props.labelFor(key)
+        if (this.props.translateValues) return this.t(key)
+
+        return key
       }
 
       filterLabelFor(param) {
